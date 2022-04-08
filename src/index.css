@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p {
+  color: #bf1650;
+  font-size: 14px;
+  text-align: center;
+}
+
+p::before {
+  display: inline;
+  content: "⚠ ";
+}
