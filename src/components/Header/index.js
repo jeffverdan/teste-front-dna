@@ -8,7 +8,7 @@ import Label from "./Label";
 const Logo = () => (
   <Label>
     <Img src={ logoColor } />
-    <Links href="">Contato</Links>
+    <Links className="badge btn" href="">Contato</Links>
   </Label>
 )
 

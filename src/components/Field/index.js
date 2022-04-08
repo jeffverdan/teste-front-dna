@@ -8,14 +8,14 @@ import Button from "./Button";
 const Text = ({ label, type, name, placeholder }) => (
   <Label>
     <Content>{ label }</Content>
-    <Input type={ type } name={ name }  placeholder={ placeholder } />
+    <Input className="form-control" type={ type } name={ name }  placeholder={ placeholder } />
   </Label>
 )
 
 const SelectComponent = ({ label, name, value1, value2, value3, value4 }) => (
   <Label>
     <Content>{ label }</Content>
-    <Select name={ name }>
+    <Select className="form-control" name={ name }>
       <option value={ value1 }>{ value1 }</option>
       <option value={ value2 }>{ value2 }</option>
       <option value={ value3 }>{ value3 }</option>
