@@ -5,17 +5,17 @@ import Label from "./Label";
 import Select from "./Select";
 import Button from "./Button";
 
-const Text = ({ label, type, name, placeholder }) => (
+const Text = ({ label, type, name, placeholder, register }) => (  
   <Label>
     <Content>{ label }</Content>
-    <Input className="form-control" type={ type } name={ name }  placeholder={ placeholder } />
+    <Input className="form-control" type={ type } {...register(name, {required: "Required",})} name={ name } placeholder={ placeholder } />
   </Label>
 )
 
-const SelectComponent = ({ label, name, value1, value2, value3, value4, value5 }) => (
+const SelectComponent = React.forwardRef(({ label, name, value1, value2, value3, value4, value5, onChange}, ref) => (  
   <Label>
     <Content>{ label }</Content>
-    <Select className="form-control" name={ name }>
+    <Select className="form-control" name={ name } ref={ ref } onChange={ onChange } >
       <option value={ value1 }>{ value1 }</option>
       <option value={ value2 }>{ value2 }</option>
       <option value={ value3 }>{ value3 }</option>
@@ -23,7 +23,7 @@ const SelectComponent = ({ label, name, value1, value2, value3, value4, value5 }
       {value5 ? <option value={ value5 }>{ value5 }</option> : null} 
     </Select>
   </Label>
-)
+))
 
 const ButtonComponent = ({ label, type }) => (
   <Label>    
