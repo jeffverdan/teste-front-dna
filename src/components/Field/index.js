@@ -12,7 +12,7 @@ const Text = ({ label, type, name, placeholder }) => (
   </Label>
 )
 
-const SelectComponent = ({ label, name, value1, value2, value3, value4 }) => (
+const SelectComponent = ({ label, name, value1, value2, value3, value4, value5 }) => (
   <Label>
     <Content>{ label }</Content>
     <Select className="form-control" name={ name }>
@@ -20,6 +20,7 @@ const SelectComponent = ({ label, name, value1, value2, value3, value4 }) => (
       <option value={ value2 }>{ value2 }</option>
       <option value={ value3 }>{ value3 }</option>
       {value4 ? <option value={ value4 }>{ value4 }</option> : null} 
+      {value5 ? <option value={ value5 }>{ value5 }</option> : null} 
     </Select>
   </Label>
 )

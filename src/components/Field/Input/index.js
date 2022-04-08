@@ -6,7 +6,7 @@ const Input = styled.input`
   width: 40vw;
   height: 30px;
   @media only screen and (max-width: 719px) { 
-    width: 70vw;
+    width: 70vw;    
   }
 `;
 
