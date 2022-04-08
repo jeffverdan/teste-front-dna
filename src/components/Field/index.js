@@ -26,7 +26,7 @@ const SelectComponent = ({ label, name, value1, value2, value3, value4 }) => (
 
 const ButtonComponent = ({ label, type }) => (
   <Label>    
-    <Button type={ type }>{ label }</Button>
+    <Button className="btn" type={ type }>{ label }</Button>
   </Label>
 )
 

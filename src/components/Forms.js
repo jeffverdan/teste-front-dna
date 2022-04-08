@@ -6,7 +6,7 @@ const Forms = styled.form`
   @media only screen and (min-width: 719px) {
     width: 60vw;
   }
-  height: 140vh;
+  min-height: 100vh;  
 `;
 
 export default Forms;
