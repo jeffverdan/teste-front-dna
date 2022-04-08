@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import React from "react";
+import { useForm  } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup";
 
@@ -21,15 +21,19 @@ const schema = yup.object({
   cpf: yup.string().test('cpf', 'CPF Inválido', (cpfNumber) => TestCPF(cpfNumber)).required(),
   dateNasc: yup.string().required("A data de nascimento é obrigatória"),
   marriage: yup.string().required(MARRIAGE_MSG).notOneOf([MARRIAGE_MSG], MARRIAGE_MSG),
+  spouse: yup.string().when("marriage", {is: "Casado", then: yup.string().required("O nome do cônjuge é obrigatório")}),
   sons: yup.string().required(SONS_MSG).notOneOf([SONS_MSG], SONS_MSG),
 })
 
 function App() {
-  const [marriage, setMarriage] = useState("");
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
-
+  
+  // Assiste os values em tempo real (Ativei para habilitar campo "conjuge")
+  const watchAllFields = watch();
+  
+  // Enviar os dados para o backend
   const sendData = (data) => {
     console.log(data);
   };
@@ -90,18 +94,24 @@ function App() {
           value3="Casado" 
           value4="Divorciado" 
           value5="Viúvo" 
-          onSelect={ (e) => {console.log(e)} }
+          onChange={ (e) => {console.log(e)} }
           { ...register("marriage") } 
         />
         { errors.marriage && <p>{ errors.marriage.message }</p> }
+
         
         {/* Campo Nome do Conjuge */}
-        <Field.Text 
-          label="Nome do Cônjuge" 
-          type="text" name="spouse" 
-          placeholder={"Digite aqui o nome completo"} 
-          register={ register } 
-        />
+        { watchAllFields.marriage === "Casado" && (
+          <>
+            <Field.Text 
+              label="Nome do Cônjuge" 
+              type="text" name="spouse" 
+              placeholder={"Digite aqui o nome completo"} 
+              register={ register } 
+            />
+            { errors.spouse && <p>{ errors.spouse.message }</p> }
+          </>
+        )}
 
         {/* Campo filhos */}
         <Field.SelectComponent 
