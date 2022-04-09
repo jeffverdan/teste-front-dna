@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# O que foi desenvolvido
+Teste de habilidades em React, para empresa DNA Imóveis.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ - [x] Página com um Formulário
+ - [x] Campos obrigatórios (nome completo, cpf, data de nascimento, estado civil, nome do cônjuge, quantidade de filhos)
+ - [x] Data de Nascimento dd/mm/aaaa
+ - [x] Validação de CPF
+ - [x] Campo Conjuge habilitado apenas se selecionado aopção "Casado"
+ - [x] Campo Tem filhos e se for maior que 0, foi mesclado a Quantidade de filhos? de 0 a 3 ou +.
+ - [x] Biblioteca utilizada React
 
-## Available Scripts
+## Prints do projeto
+<img src="https://github.com/jeffverdan/teste-front-dna/blob/main/public/images/demonstra%C3%A7%C3%A3o.png" width="900"/>
 
-In the project directory, you can run:
+## Instruções para executar o projeto
 
-### `npm start`
+1. Clone o repositório
+  * `git clone git@github.com:jeffverdan/teste-front-dna.git`.
+  * Entre na pasta do repositório que você acabou de clonar:
+    * `cd test-front-dna`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Instale as dependências e inicialize o projeto
+  * Instale as dependências:
+    * `npm install`
+  * Inicialize o projeto:
+    * `npm start` (uma nova página http://localhost:3000/ deve abrir no seu navegador)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Documentação
 
-### `npm test`
+O projeto fui desenvolvido utilizando biblioteca `ReactJs`, linguagem `javaScript`, e de estilização `CSS` + `Bootstrap`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Também utilizei de:
+* Styled-Components https://styled-components.com/ - Facilita a alteração e remoção de estilos e componentes.
+* Hooks costumizados como `useForm` (documentação disponivel no <a href="https://react-hook-form.com/api/useform"> Link </a> )
+* Para validação dos campos do forms, utlizei `YUP` (documentação no <a href="https://github.com/jquense/yup"> Link </a> )
+* Para validação do CPF em particular, encontrei a solução no forum da Ages (<a href="https://tools.ages.pucrs.br/calculadora/calculadora-front/-/commit/2e918d3ee0321a556112c3b25767d3e0a511b872?w=1"> Link </a> ), postada pelo usuário Guilherme Sbroglio Rizzotto.
+Achei essa parte do CPF interessante pois ele valida o primeiro digito do CPF multiplicando cada digito (do 1º ao 9º) começando por 10 e diminuindo gradativamente até 2 e vai acumulando o total das multiplicações. Depois pega-se 11 e subtrai-se o resto do acumulado dividido por 11. Se o resultado for maior que 9 o primeiro digito verificador é 0 senão é o próprio resultado.
