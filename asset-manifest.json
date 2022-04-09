@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/teste-front-dna/static/css/main.00eae999.css",
+    "main.js": "/teste-front-dna/static/js/main.2051c558.js",
+    "static/media/logoColorDNA.png": "/teste-front-dna/static/media/logoColorDNA.85c865f71961ee647eed.png",
+    "static/media/logoWhiteDNA.webp": "/teste-front-dna/static/media/logoWhiteDNA.602cfc9caf6de5eedc24.webp",
+    "index.html": "/teste-front-dna/index.html",
+    "main.00eae999.css.map": "/teste-front-dna/static/css/main.00eae999.css.map",
+    "main.2051c558.js.map": "/teste-front-dna/static/js/main.2051c558.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.00eae999.css",
+    "static/js/main.2051c558.js"
+  ]
+}
