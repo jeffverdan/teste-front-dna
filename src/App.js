@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup";
 
 import TestCPF from "./components/utils/TestCPF"
+
 import Field from "./components/Field";
 import Forms from "./components/Forms";
 import Header from "./components/Header";
@@ -14,12 +15,13 @@ import Title from "./components/Title";
 
 const MARRIAGE_MSG = "Selecione um estado civil";
 const SONS_MSG = "Selecione a quantidade de filhos";
+const REGEX_DATE = /^(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/](19|20)\d\d$/;
 
 //Validação de campos utilizando YUP https://www.npmjs.com/package/yup#api
 const schema = yup.object({
   name: yup.string().required("O nome é obrigatório"),
   cpf: yup.string().test('cpf', 'CPF Inválido', (cpfNumber) => TestCPF(cpfNumber)).required(),
-  dateNasc: yup.string().required("A data de nascimento é obrigatória"),
+  dateNasc: yup.string().matches(REGEX_DATE, "Data Inválida, informe desse modo dd/mm/aaaa com as barras").required("A data de nascimento é obrigatória"),
   marriage: yup.string().required(MARRIAGE_MSG).notOneOf([MARRIAGE_MSG], MARRIAGE_MSG),
   spouse: yup.string().when("marriage", {is: "Casado", then: yup.string().required("O nome do cônjuge é obrigatório")}),
   sons: yup.string().required(SONS_MSG).notOneOf([SONS_MSG], SONS_MSG),
