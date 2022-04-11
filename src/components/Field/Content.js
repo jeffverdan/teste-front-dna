@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Content = styled.span`
+const Content = styled.label`
   font-size: 15px;  
 `;
 

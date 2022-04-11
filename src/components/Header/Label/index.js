@@ -5,7 +5,7 @@ const Label = styled.label`
   justify-content: space-between;
   align-items: center;
   margin-left: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
   text-align: right;
 `;
 
