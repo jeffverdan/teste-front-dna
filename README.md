@@ -36,3 +36,4 @@ Também utilizei de:
 * Para validação dos campos do forms, utlizei `YUP` (documentação no <a href="https://github.com/jquense/yup"> Link </a> )
 * Para validação do CPF em particular, encontrei a solução no forum da Ages (<a href="https://tools.ages.pucrs.br/calculadora/calculadora-front/-/commit/2e918d3ee0321a556112c3b25767d3e0a511b872?w=1"> Link </a> ), postada pelo usuário Guilherme Sbroglio Rizzotto.
 Achei essa parte do CPF interessante pois ele valida o primeiro digito do CPF multiplicando cada digito (do 1º ao 9º) começando por 10 e diminuindo gradativamente até 2 e vai acumulando o total das multiplicações. Depois pega-se 11 e subtrai-se o resto do acumulado dividido por 11. Se o resultado for maior que 9 o primeiro digito verificador é 0 senão é o próprio resultado.
+* React Testing para verificar se os campos do formulário, eram renderizados corretamente na página.
